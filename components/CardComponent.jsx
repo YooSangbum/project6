@@ -24,6 +24,13 @@ export default function CardComponent({ content, navigation }) {
     });
   };
 
+  const goCommentPage = () => {
+    navigation.navigate('CommentPage');
+  };
+  const goFeedPage = () => {
+    navigation.navigate('FeedPage');
+  };
+
   return (
     <Box
       py={8}
@@ -32,8 +39,8 @@ export default function CardComponent({ content, navigation }) {
       borderBottomColor={'#D9D9D9'}
       px={'16px'}
     >
-      <TouchableOpacity onPress={() => DetailLoad()}>
-        <HStack alignItems={'center'} justifyContent="space-between">
+      <HStack alignItems={'center'} justifyContent="space-between">
+        <TouchableOpacity onPress={goFeedPage}>
           <HStack>
             <Box width={29} height={29} borderRadius={50} overflow={'hidden'}>
               <Image
@@ -50,31 +57,33 @@ export default function CardComponent({ content, navigation }) {
               </Text>
             </VStack>
           </HStack>
-          <HStack>
-            <Menu
-              w={130}
-              trigger={(triggerProps) => {
-                return (
-                  <Pressable
-                    accessibilityLabel="More options menu"
-                    {...triggerProps}
-                  >
-                    {/* <HamburgerIcon /> */}
-                    <Icon
-                      as={MaterialIcons}
-                      name="more-vert"
-                      size="5"
-                      color="black"
-                    />
-                  </Pressable>
-                );
-              }}
-            >
-              <Menu.Item isDisabled>Sofia</Menu.Item>
-              <Menu.Item>Cookie</Menu.Item>
-            </Menu>
-          </HStack>
+        </TouchableOpacity>
+        <HStack>
+          <Menu
+            w={130}
+            trigger={(triggerProps) => {
+              return (
+                <Pressable
+                  accessibilityLabel="More options menu"
+                  {...triggerProps}
+                >
+                  {/* <HamburgerIcon /> */}
+                  <Icon
+                    as={MaterialIcons}
+                    name="more-vert"
+                    size="5"
+                    color="black"
+                  />
+                </Pressable>
+              );
+            }}
+          >
+            <Menu.Item isDisabled>Sofia</Menu.Item>
+            <Menu.Item>Cookie</Menu.Item>
+          </Menu>
         </HStack>
+      </HStack>
+      <TouchableOpacity onPress={() => DetailLoad()}>
         <ScrollView mt={3} horizontal={true}>
           <Image
             mr={3}
@@ -99,20 +108,22 @@ export default function CardComponent({ content, navigation }) {
         <Text fontFamily={'SUIT-Medium'} fontSize={12} isTruncated maxW="300">
           {content.content}
         </Text>
-        <HStack mt={3} alignItems={'center'} justifyContent={'space-between'}>
-          <HStack>
-            <HStack mr={3}>
-              <EvilIcons name="heart" size={24} color="red" />
-              <Text ml={1}>0</Text>
-            </HStack>
+      </TouchableOpacity>
+      <HStack mt={3} alignItems={'center'} justifyContent={'space-between'}>
+        <HStack>
+          <HStack mr={3}>
+            <EvilIcons name="heart" size={24} color="red" />
+            <Text>0</Text>
+          </HStack>
+          <TouchableOpacity onPress={goCommentPage}>
             <HStack>
               <FontAwesome5 name="comment-dots" size={18} color="black" />
               <Text ml={1}>0</Text>
             </HStack>
-          </HStack>
-          <FontAwesome5 name="share-square" size={18} color="black" />
+          </TouchableOpacity>
         </HStack>
-      </TouchableOpacity>
+        <FontAwesome5 name="share-square" size={18} color="black" />
+      </HStack>
     </Box>
   );
 }

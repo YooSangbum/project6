@@ -8,6 +8,7 @@ import {
   Pressable,
   Icon,
   ScrollView,
+  View,
 } from 'native-base';
 
 import { MaterialIcons } from '@expo/vector-icons';
@@ -83,7 +84,7 @@ export default function DetailPage({ navigation, route }) {
             </Menu>
           </HStack>
         </HStack>
-        <ScrollView mt={3} horizontal={true}>
+        <View mt={3} horizontal={true}>
           <Image
             mr={3}
             source={{ uri: content.image }}
@@ -92,15 +93,7 @@ export default function DetailPage({ navigation, route }) {
             borderRadius={14}
             alt="img1"
           />
-          <Image
-            mr={3}
-            source={{ uri: content.image }}
-            w={353}
-            h={209}
-            borderRadius={14}
-            alt="img2"
-          />
-        </ScrollView>
+        </View>
         <Text mt={8} fontFamily={'SUIT-Medium'} fontSize={18}>
           {content.title}
         </Text>

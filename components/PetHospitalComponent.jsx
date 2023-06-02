@@ -6,7 +6,7 @@ const test1 = require('../assets/img/user1.jpg');
 const test2 = require('../assets/img/user2.jpg');
 const test3 = require('../assets/img/user3.jpg');
 
-export default function PetHospital() {
+export default function PetHospitalComponent() {
   return (
     <Box backgroundColor={'#fff'} px={'16px'} pt={12} pb={1}>
       <HStack justifyContent={'space-between'} alignItems={'center'} mb={4}>

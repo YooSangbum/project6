@@ -49,7 +49,11 @@ export default function TapComponent({ navigation, route }) {
       >
         자랑
       </Text>
-      <Text mr={5} fontFamily={'SCDream4'}>
+      <Text
+        mr={5}
+        color={route.name == 'PetHospitalPage' ? '#EC4242' : null}
+        fontFamily={'SCDream4'}
+      >
         동물병원
       </Text>
       <Text fontFamily={'SCDream4'}>쇼핑몰</Text>

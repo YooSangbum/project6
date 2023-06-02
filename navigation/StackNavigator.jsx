@@ -8,6 +8,8 @@ import SignUpPage from '../pages/SignUpPage';
 import SignInEmail from '../pages/SignInEmail';
 import TabNavigator from './TabNavigator';
 import DetailPage from '../pages/DetailPage';
+import CommentPage from '../pages/CommentPage';
+import FeedPage from '../pages/FeedPage';
 
 const Stack = createStackNavigator();
 const StackNavigator = () => {
@@ -22,6 +24,8 @@ const StackNavigator = () => {
       }}
     >
       <Stack.Screen name="TabNavigator" component={TabNavigator} />
+      <Stack.Screen name="FeedPage" component={FeedPage} />
+      <Stack.Screen name="CommentPage" component={CommentPage} />
       <Stack.Screen name="DetailPage" component={DetailPage} />
       <Stack.Screen name="SignInPage" component={SignInPage} />
       <Stack.Screen name="SignUpPage" component={SignUpPage} />

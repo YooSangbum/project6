@@ -7,6 +7,9 @@ import { Ionicons } from '@expo/vector-icons';
 //--------------------------------------------------
 import HomePage from '../pages/HomePage';
 import ShowPage from '../pages/ShowPage';
+import AddPage from '../pages/AddPage';
+import MyPage from '../pages/MyPage';
+import PetHospitalPage from '../pages/PetHospitalPage';
 
 //--------------------------------------------------
 
@@ -22,8 +25,12 @@ const TabNavigator = ({ navigation, route }) => {
             iconName += 'home-outline';
           } else if (route.name === 'ShowPage') {
             iconName += 'trophy-outline';
-          } else if (route.name === 'ChatBoxPage') {
-            iconName += 'chatbubbles-outline';
+          } else if (route.name === 'AddPage') {
+            iconName += 'add-circle-outline';
+          } else if (route.name === 'MyPage') {
+            iconName += 'person-outline';
+          } else if (route.name === 'PetHospitalPage') {
+            iconName += 'briefcase-outline';
           }
           return (
             <Ionicons
@@ -49,6 +56,9 @@ const TabNavigator = ({ navigation, route }) => {
     >
       <Tabs.Screen name="HomePage" component={HomePage} />
       <Tabs.Screen name="ShowPage" component={ShowPage} />
+      <Tabs.Screen name="AddPage" component={AddPage} />
+      <Tabs.Screen name="PetHospitalPage" component={PetHospitalPage} />
+      <Tabs.Screen name="MyPage" component={MyPage} />
     </Tabs.Navigator>
   );
 };

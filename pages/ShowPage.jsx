@@ -1,6 +1,6 @@
+import { ScrollView } from 'native-base';
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { ScrollView } from 'native-base';
 import CardComponent from '../components/CardComponent';
 
 import HeaderComponent from '../components/HeaderComponent';
@@ -16,7 +16,7 @@ export default function ShowPage({ navigation, route }) {
     setData(testData);
   }, []);
   return (
-    <ScrollView flex={1} backgroundColor={'#fff'}>
+    <ScrollView borderWidth={10} backgroundColor={'#fff'}>
       <HeaderComponent />
       <TapComponent route={route} navigation={navigation} />
       <SuperStar data={data} />

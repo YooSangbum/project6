@@ -6,7 +6,7 @@ import ImageBlurLoading from 'react-native-image-blur-loading';
 
 import HeaderComponent from '../components/HeaderComponent';
 import HoneyTip from '../components/HoneyTip';
-import PetHospital from '../components/PetHospital';
+import PetHospitalComponent from '../components/PetHospitalComponent';
 import SuperStar from '../components/SuperStar';
 import TapComponent from '../components/TapComponent';
 
@@ -62,7 +62,7 @@ export default function HomePage({ navigation, route }) {
         </ScrollView>
       </Box>
       <SuperStar data={data} />
-      <PetHospital />
+      <PetHospitalComponent />
       <HoneyTip />
     </ScrollView>
   );
