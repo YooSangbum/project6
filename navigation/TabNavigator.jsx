@@ -15,7 +15,7 @@ import PetHospitalPage from '../pages/PetHospitalPage';
 
 const Tabs = createBottomTabNavigator();
 
-const TabNavigator = ({ navigation, route }) => {
+const TabNavigator = ({ navigation, route, hospital, data }) => {
   return (
     <Tabs.Navigator
       screenOptions={({ route }) => ({
@@ -54,10 +54,25 @@ const TabNavigator = ({ navigation, route }) => {
         ],
       })}
     >
-      <Tabs.Screen name="HomePage" component={HomePage} />
-      <Tabs.Screen name="ShowPage" component={ShowPage} />
+      {/* <Tabs.Screen name="HomePage" component={HomePage} /> */}
+      <Tabs.Screen name="HomePage">
+        {(props) => (
+          <HomePage {...props}  hospital={hospital} data={data} />
+        )}
+        </Tabs.Screen>
+      {/* <Tabs.Screen name="ShowPage" component={ShowPage} /> */}
+      <Tabs.Screen name="ShowPage">
+        {(props) => (
+          <ShowPage {...props}  hospital={hospital} data={data} />
+        )}
+        </Tabs.Screen>
       <Tabs.Screen name="AddPage" component={AddPage} />
-      <Tabs.Screen name="PetHospitalPage" component={PetHospitalPage} />
+      {/* <Tabs.Screen name="PetHospitalPage" component={PetHospitalPage} /> */}
+      <Tabs.Screen name="PetHospitalPage">
+        {(props) => (
+          <PetHospitalPage {...props}  hospital={hospital} />
+        )}
+        </Tabs.Screen>
       <Tabs.Screen name="MyPage" component={MyPage} />
     </Tabs.Navigator>
   );

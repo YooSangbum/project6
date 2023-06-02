@@ -1,9 +1,11 @@
 import { Box, HStack, Stack, Text, VStack } from 'native-base';
+import { TouchableOpacity } from 'react-native';
 
 import ImageBlurLoading from 'react-native-image-blur-loading';
 
-export default function SuperStar({ data }) {
-  const item = data.slice(0, 5);
+export default function SuperStar({ content, navigation }) {
+  const item = content.slice(0, 5);
+
   return (
     <Box
       backgroundColor="#F7F7FE"
@@ -21,17 +23,26 @@ export default function SuperStar({ data }) {
       </Text>
       <HStack justifyContent={'space-around'}>
         {item.map((item, i) => {
+            const goFeedPage = () => {
+              navigation.navigate('FeedPage', {
+                content: item,
+              });
+            };
           return (
-            <VStack alignItems={'center'} py={1} key={i}>
-              <ImageBlurLoading
-                withIndicator
-                thumbnailSource={{ uri: item.image }}
-                source={{ uri: item.image }}
-                style={{ width: 59, height: 59 }}
-                borderRadius={50}
-              />
-              <Text pt={1}>{item.petname}</Text>
+          <TouchableOpacity key={i} onPress={goFeedPage}>
+            <VStack alignItems={'center'} py={1}>
+              
+                <ImageBlurLoading
+                  withIndicator
+                  thumbnailSource={{ uri: item.image }}
+                  source={{ uri: item.image }}
+                  style={{ width: 59, height: 59 }}
+                  borderRadius={50}
+                
+                />
+                <Text pt={1}>{item.petname}</Text>
             </VStack>
+          </TouchableOpacity>
           );
         })}
       </HStack>

@@ -7,15 +7,13 @@ import {
   Menu,
   Pressable,
   Icon,
-  ScrollView,
+  View,
 } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 
 import { MaterialIcons } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-
-const user = require('../assets/img/user3.jpg');
 
 export default function CardComponent({ content, navigation }) {
   const DetailLoad = () => {
@@ -28,7 +26,9 @@ export default function CardComponent({ content, navigation }) {
     navigation.navigate('CommentPage');
   };
   const goFeedPage = () => {
-    navigation.navigate('FeedPage');
+    navigation.navigate('FeedPage', {
+      content: content,
+    });
   };
 
   return (
@@ -84,7 +84,7 @@ export default function CardComponent({ content, navigation }) {
         </HStack>
       </HStack>
       <TouchableOpacity onPress={() => DetailLoad()}>
-        <ScrollView mt={3} horizontal={true}>
+        <View mt={3} >
           <Image
             mr={3}
             source={{ uri: content.image }}
@@ -93,15 +93,7 @@ export default function CardComponent({ content, navigation }) {
             borderRadius={14}
             alt="img1"
           />
-          <Image
-            mr={3}
-            source={user}
-            w={353}
-            h={209}
-            borderRadius={14}
-            alt="img1"
-          />
-        </ScrollView>
+        </View>
         <Text mt={3} fontFamily={'SUIT-Medium'} fontSize={18}>
           글 제목
         </Text>

@@ -6,25 +6,24 @@ import ImageBlurLoading from 'react-native-image-blur-loading';
 
 import HeaderComponent from '../components/HeaderComponent';
 import HoneyTip from '../components/HoneyTip';
-import PetHospitalComponent from '../components/PetHospitalComponent';
+import HospitalComponent from '../components/HospitalComponent';
 import SuperStar from '../components/SuperStar';
 import TapComponent from '../components/TapComponent';
 
-import testData from '../data/testData';
 
-export default function HomePage({ navigation, route }) {
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    setData(testData);
-  }, []);
+export default function HomePage({ navigation, route, hospital, data }) {
 
   const goShow = () => {
     navigation.navigate('ShowPage');
   };
+  const goPetHospital = ()=> {
+    navigation.navigate('PetHospitalPage')
+  }
+  const petH = hospital.slice(0,3)
 
   return (
-    <ScrollView flex={1} backgroundColor={'#fff'}>
+    <ScrollView backgroundColor={'#fff'}>
       <HeaderComponent />
       <TapComponent route={route} navigation={navigation} />
       <Box px="16px" pb={10}>
@@ -61,8 +60,25 @@ export default function HomePage({ navigation, route }) {
           })}
         </ScrollView>
       </Box>
-      <SuperStar data={data} />
-      <PetHospitalComponent />
+      <SuperStar content={data} navigation={navigation}
+            route={route} />
+      <Box backgroundColor={'#fff'} px={'16px'} pt={12} pb={1}>
+      <HStack justifyContent={'space-between'} alignItems={'center'} mb={4}>
+        <Text color={'#EC7542'} fontFamily={'SUIT-Medium'} fontSize={16} onPress={goPetHospital}>
+          우리동네 <Text color={'#000'}>동물병원</Text>
+        </Text>
+        <Text color={'#ec4242'} fontSize={10} fontFamily={'SUIT-Medium'} onPress={goPetHospital}>
+          더보기 &gt;
+        </Text>
+      </HStack>
+      </Box>
+      {
+        petH.map((hospital,i)=>{
+          return(
+            <HospitalComponent hospital={hospital} key={i} route={route} />
+          )
+        })
+      }
       <HoneyTip />
     </ScrollView>
   );

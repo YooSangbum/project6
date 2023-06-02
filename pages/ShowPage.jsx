@@ -7,19 +7,19 @@ import HeaderComponent from '../components/HeaderComponent';
 import SuperStar from '../components/SuperStar';
 import TapComponent from '../components/TapComponent';
 
-import testData from '../data/testData';
 
-export default function ShowPage({ navigation, route }) {
-  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    setData(testData);
-  }, []);
+export default function ShowPage({ navigation, route, data }) {
+  
   return (
-    <ScrollView borderWidth={10} backgroundColor={'#fff'}>
+    <ScrollView background={"#fff"}>
       <HeaderComponent />
       <TapComponent route={route} navigation={navigation} />
-      <SuperStar data={data} />
+      <SuperStar 
+      content={data} 
+      navigation={navigation}
+      route={route} 
+      />
       {data.map((data, i) => {
         return (
           <CardComponent

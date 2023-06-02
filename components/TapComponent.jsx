@@ -22,6 +22,9 @@ export default function TapComponent({ navigation, route }) {
   const goShow = () => {
     navigation.navigate('ShowPage');
   };
+  const goPetHospital = ()=> {
+    navigation.navigate('PetHospitalPage')
+  }
 
   return (
     <HStack
@@ -53,6 +56,7 @@ export default function TapComponent({ navigation, route }) {
         mr={5}
         color={route.name == 'PetHospitalPage' ? '#EC4242' : null}
         fontFamily={'SCDream4'}
+        onPress={goPetHospital}
       >
         동물병원
       </Text>

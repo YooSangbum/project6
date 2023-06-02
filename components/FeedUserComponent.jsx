@@ -11,18 +11,16 @@ import {
 
 import { TouchableOpacity } from 'react-native';
 
-const cat = require('../assets/img/user3.jpg');
-
-export default function FeedUserComponent() {
+export default function FeedUserComponent({content}) {
   return (
     <Box px={'16px'} mt={6} py={3}>
       <HStack alignItems={'center'}>
         <Box overflow="hidden" width={35} height={35} borderRadius={50}>
-          <Image source={cat} alt="cat" width={35} height={35} />
+          <Image source={{uri: content.image}} alt="cat" width={35} height={35} />
         </Box>
         <VStack ml={2}>
           <Text fontFamily={'SUIT-Medium'} fontSize={18}>
-            유상범
+            username{content.petname}
           </Text>
           <Text fontFamily={'SUIT-Medium'} color="#B4B0B0" fontSize={12}>
             안녕하세요. 유상범입니다. 자기소개 합니다.

@@ -13,7 +13,7 @@ import HeartComponent from './HeartComponent';
 
 const imgWidth = Dimensions.get('window').width / 3;
 
-export default function FeedShowComponent() {
+export default function FeedShowComponent({content}) {
   const [gridView, setgridView] = useState(true);
   const [multiple, setmultiple] = useState(false);
   const [heart, setheart] = useState(false);
@@ -89,9 +89,9 @@ export default function FeedShowComponent() {
           </TouchableOpacity>
         </HStack>
       </Box>
-      {gridView ? <GridViewComponent /> : null}
-      {multiple ? <MultipleComponent /> : null}
-      {heart ? <HeartComponent /> : null}
+      {gridView ? <GridViewComponent content={content} /> : null}
+      {multiple ? <MultipleComponent content={content} /> : null}
+      {heart ? <HeartComponent content={content} /> : null}
     </>
   );
 }

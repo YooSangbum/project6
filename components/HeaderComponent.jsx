@@ -26,7 +26,7 @@ export default function HeaderComponent() {
       alignItems="center"
       w="100%"
       safeAreaTop
-      backgroundColor={'#fff'}
+      // backgroundColor={'#fff'}
     >
       <HStack alignItems="center">
         <Text fontFamily={'DancingScript-Bold'} fontSize={32}>
