@@ -4,14 +4,22 @@ import { ImageBackground } from 'react-native';
 const tip1 = require('../assets/img/tip1.png');
 const tip2 = require('../assets/img/tip2.png');
 
-export default function HoneyTip() {
+export default function HoneyTip({ navigation }) {
+  const goHoneyTip = () => {
+    navigation.navigate('HoneyTipPage');
+  };
   return (
     <Box backgroundColor={'#fff'} px={'16px'} pt={8} pb={3}>
       <HStack justifyContent={'space-between'} alignItems={'center'} mb={1}>
         <Text fontFamily={'SUIT-Medium'} fontSize={16}>
           꿀팁
         </Text>
-        <Text color={'#ec4242'} fontSize={10} fontFamily={'SUIT-Medium'}>
+        <Text
+          color={'#ec4242'}
+          fontSize={10}
+          fontFamily={'SUIT-Medium'}
+          onPress={goHoneyTip}
+        >
           더보기 &gt;
         </Text>
       </HStack>

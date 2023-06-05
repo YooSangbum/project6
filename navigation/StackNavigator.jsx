@@ -10,9 +10,12 @@ import TabNavigator from './TabNavigator';
 import DetailPage from '../pages/DetailPage';
 import CommentPage from '../pages/CommentPage';
 import FeedPage from '../pages/FeedPage';
+import HospitalDetailPage from '../pages/HospitalDetailPage';
+import HoneyTipPage from '../pages/HoneyTipPage';
+import ShoppingmallPage from '../pages/ShoppingmallPage';
 
 const Stack = createStackNavigator();
-const StackNavigator = ({hospital, data}) => {
+const StackNavigator = ({ hospital, data }) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -24,18 +27,18 @@ const StackNavigator = ({hospital, data}) => {
       }}
     >
       {/* <Stack.Screen name="TabNavigator" component={TabNavigator}  /> */}
+      <Stack.Screen name="SignInPage" component={SignInPage} />
       <Stack.Screen name="TabNavigator">
-        {(props) => (
-          <TabNavigator {...props} hospital={hospital} data={data} />
-        )}
+        {(props) => <TabNavigator {...props} hospital={hospital} data={data} />}
       </Stack.Screen>
-
+      <Stack.Screen name="HospitalDetailPage" component={HospitalDetailPage} />
       <Stack.Screen name="FeedPage" component={FeedPage} />
       <Stack.Screen name="CommentPage" component={CommentPage} />
       <Stack.Screen name="DetailPage" component={DetailPage} />
-      <Stack.Screen name="SignInPage" component={SignInPage} />
       <Stack.Screen name="SignUpPage" component={SignUpPage} />
       <Stack.Screen name="SignInEmail" component={SignInEmail} />
+      <Stack.Screen name="HoneyTipPage" component={HoneyTipPage} />
+      <Stack.Screen name="ShoppingmallPage" component={ShoppingmallPage} />
     </Stack.Navigator>
   );
 };

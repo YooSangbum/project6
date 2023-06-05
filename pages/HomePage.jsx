@@ -10,17 +10,17 @@ import HospitalComponent from '../components/HospitalComponent';
 import SuperStar from '../components/SuperStar';
 import TapComponent from '../components/TapComponent';
 
-
-
 export default function HomePage({ navigation, route, hospital, data }) {
-
   const goShow = () => {
     navigation.navigate('ShowPage');
   };
-  const goPetHospital = ()=> {
-    navigation.navigate('PetHospitalPage')
-  }
-  const petH = hospital.slice(0,3)
+  const goPetHospital = () => {
+    navigation.navigate('PetHospitalPage');
+  };
+  const goHoneyTip = () => {
+    navigation.navigate('HoneyTipPage');
+  };
+  const petH = hospital.slice(0, 3);
 
   return (
     <ScrollView backgroundColor={'#fff'}>
@@ -60,26 +60,38 @@ export default function HomePage({ navigation, route, hospital, data }) {
           })}
         </ScrollView>
       </Box>
-      <SuperStar content={data} navigation={navigation}
-            route={route} />
+      <SuperStar content={data} navigation={navigation} route={route} />
       <Box backgroundColor={'#fff'} px={'16px'} pt={12} pb={1}>
-      <HStack justifyContent={'space-between'} alignItems={'center'} mb={4}>
-        <Text color={'#EC7542'} fontFamily={'SUIT-Medium'} fontSize={16} onPress={goPetHospital}>
-          우리동네 <Text color={'#000'}>동물병원</Text>
-        </Text>
-        <Text color={'#ec4242'} fontSize={10} fontFamily={'SUIT-Medium'} onPress={goPetHospital}>
-          더보기 &gt;
-        </Text>
-      </HStack>
+        <HStack justifyContent={'space-between'} alignItems={'center'} mb={4}>
+          <Text
+            color={'#EC7542'}
+            fontFamily={'SUIT-Medium'}
+            fontSize={16}
+            onPress={goPetHospital}
+          >
+            우리동네 <Text color={'#000'}>동물병원</Text>
+          </Text>
+          <Text
+            color={'#ec4242'}
+            fontSize={10}
+            fontFamily={'SUIT-Medium'}
+            onPress={goPetHospital}
+          >
+            더보기 &gt;
+          </Text>
+        </HStack>
       </Box>
-      {
-        petH.map((hospital,i)=>{
-          return(
-            <HospitalComponent hospital={hospital} key={i} route={route} />
-          )
-        })
-      }
-      <HoneyTip />
+      {petH.map((hospital, i) => {
+        return (
+          <HospitalComponent
+            hospital={hospital}
+            key={i}
+            route={route}
+            navigation={navigation}
+          />
+        );
+      })}
+      <HoneyTip navigation={navigation} />
     </ScrollView>
   );
 }

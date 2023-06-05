@@ -4,12 +4,12 @@ import FeedMyComponent from '../components/FeedMyComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import FeedMyShowComponent from '../components/FeedMyShowComponent';
 
-export default function FeedPage() {
+export default function MyPage({ data }) {
   return (
     <ScrollView backgroundColor={'#fff'} flex={1}>
       <HeaderComponent />
       <FeedMyComponent />
-      <FeedMyShowComponent />
+      <FeedMyShowComponent data={data} />
     </ScrollView>
   );
 }

@@ -56,24 +56,21 @@ const TabNavigator = ({ navigation, route, hospital, data }) => {
     >
       {/* <Tabs.Screen name="HomePage" component={HomePage} /> */}
       <Tabs.Screen name="HomePage">
-        {(props) => (
-          <HomePage {...props}  hospital={hospital} data={data} />
-        )}
-        </Tabs.Screen>
+        {(props) => <HomePage {...props} hospital={hospital} data={data} />}
+      </Tabs.Screen>
       {/* <Tabs.Screen name="ShowPage" component={ShowPage} /> */}
       <Tabs.Screen name="ShowPage">
-        {(props) => (
-          <ShowPage {...props}  hospital={hospital} data={data} />
-        )}
-        </Tabs.Screen>
+        {(props) => <ShowPage {...props} hospital={hospital} data={data} />}
+      </Tabs.Screen>
       <Tabs.Screen name="AddPage" component={AddPage} />
       {/* <Tabs.Screen name="PetHospitalPage" component={PetHospitalPage} /> */}
       <Tabs.Screen name="PetHospitalPage">
-        {(props) => (
-          <PetHospitalPage {...props}  hospital={hospital} />
-        )}
-        </Tabs.Screen>
-      <Tabs.Screen name="MyPage" component={MyPage} />
+        {(props) => <PetHospitalPage {...props} hospital={hospital} />}
+      </Tabs.Screen>
+      {/* <Tabs.Screen name="MyPage" component={MyPage} /> */}
+      <Tabs.Screen name="MyPage">
+        {(props) => <MyPage {...props} data={data} />}
+      </Tabs.Screen>
     </Tabs.Navigator>
   );
 };

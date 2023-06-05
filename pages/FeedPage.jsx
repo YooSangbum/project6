@@ -14,7 +14,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import FeedShowComponent from '../components/FeedShowComponent';
 
 export default function FeedPage({ navigation, route }) {
-  const content = route.params.content
+  const content = route.params.content;
   return (
     <ScrollView backgroundColor={'#fff'} flex={1}>
       <HeaderComponent />

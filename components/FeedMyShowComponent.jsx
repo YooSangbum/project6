@@ -6,13 +6,13 @@ import { TouchableOpacity, Dimensions } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 
-import GridViewComponent from './GridViewComponent';
-import FriendComponent from './FriendComponent';
-import HeartComponent from './HeartComponent';
+import GridViewMyComponent from './GridViewMyComponent';
+import FriendMyComponent from './FriendMyComponent';
+import HeartMyComponent from './HeartMyComponent';
 
 const imgWidth = Dimensions.get('window').width / 3;
 
-export default function FeedMyShowComponent() {
+export default function FeedMyShowComponent({ data }) {
   const [gridView, setgridView] = useState(true);
   const [friend, setfriend] = useState(false);
   const [heart, setheart] = useState(false);
@@ -88,9 +88,10 @@ export default function FeedMyShowComponent() {
           </TouchableOpacity>
         </HStack>
       </Box>
-      {gridView ? <GridViewComponent /> : null}
-      {friend ? <FriendComponent /> : null}
-      {heart ? <HeartComponent /> : null}
+
+      {gridView ? <GridViewMyComponent data={data} /> : null}
+      {friend ? <FriendMyComponent data={data} /> : null}
+      {heart ? <HeartMyComponent data={data} /> : null}
     </>
   );
 }

@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { Stack, Input, Box } from 'native-base';
+import { Stack, Input, Box, Text } from 'native-base';
 
 import { AntDesign } from '@expo/vector-icons';
 import { EvilIcons } from '@expo/vector-icons';
 
-export default function SingInInput() {
-  const [show, setShow] = useState(false);
+export default function SingInInput({
+  title,
+  type,
+  setFunc,
+  error,
+  titleP,
+  typeP,
+  setFuncP,
+  errorP,
+}) {
   return (
     <Stack space={4} w="100%" alignItems="center">
       <Input
@@ -28,10 +36,14 @@ export default function SingInInput() {
             <AntDesign name="mail" size={14} color="white" />
           </Box>
         }
-        placeholder="이메일을 적어주세요"
+        placeholder={type}
         placeholderTextColor={'black'}
         fontFamily={'SCDream5'}
+        onChangeText={(text) => setFunc(text)}
       />
+      <Text w={'80%'} color={'yellow.500'}>
+        {error}
+      </Text>
       <Input
         w={{
           base: '90%',
@@ -51,10 +63,15 @@ export default function SingInInput() {
             <EvilIcons name="lock" size={24} color="white" />
           </Box>
         }
-        placeholder="··········"
+        placeholder={typeP}
         placeholderTextColor={'black'}
         fontWeight={700}
+        secureTextEntry={typeP === 'password' ? true : false}
+        onChangeText={(text) => setFuncP(text)}
       />
+      <Text w={'80%'} color={'yellow.500'}>
+        {errorP}
+      </Text>
     </Stack>
   );
 }

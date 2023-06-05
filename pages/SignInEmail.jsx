@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View, FormControl, Flex } from 'native-base';
 
@@ -9,11 +9,36 @@ import SingInInput from '../components/SingInInput';
 import { AntDesign } from '@expo/vector-icons';
 
 export default function SignInEmail({ navigation }) {
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+
   const goSignUpPage = () => {
     navigation.navigate('SignUpPage');
   };
-  const goHome = () => {
-    navigation.navigate('TabNavigator');
+
+  const doSignIn = () => {
+    //로그인 버튼을 클릭했을 때 실행되는 함수
+    if (email === '') {
+      setEmailError('이메일을 입력해주세요');
+    } else {
+      setEmailError('');
+    }
+    if (password === '') {
+      setPasswordError('비밀번호를 입력해주세요');
+    } else {
+      setPasswordError('');
+    }
+  };
+
+  const setEmailFunc = (itemInputEmail) => {
+    //이메일 상태값을 관리하는 함수
+    setEmail(itemInputEmail);
+  };
+  const setPasswordFunc = (itemInputPassword) => {
+    //비밀번호 상태값을 관리하는 함수
+    setPassword(itemInputPassword);
   };
 
   useEffect(() => {
@@ -28,6 +53,7 @@ export default function SignInEmail({ navigation }) {
       headerBackImage: () => <AntDesign name="left" size={24} color="white" />,
     });
   }, []);
+
   return (
     <View style={styles.container} pt={10}>
       <Text fontSize={40} fontFamily={'DancingScript-Bold'}>
@@ -37,7 +63,16 @@ export default function SignInEmail({ navigation }) {
         로그인 해주세요
       </Text>
       <FormControl w={'80%'}>
-        <SingInInput />
+        <SingInInput
+          title={'이메일'}
+          type={'email'}
+          setFunc={setEmailFunc}
+          error={emailError}
+          titleP={'비밀번호'}
+          typeP={'password'}
+          setFuncP={setPasswordFunc}
+          errorP={passwordError}
+        />
       </FormControl>
       <Text
         w={'80%'}
@@ -49,7 +84,7 @@ export default function SignInEmail({ navigation }) {
       >
         비밀번호를 잊으셨나요?
       </Text>
-      <TouchableOpacity style={styles.login} onPress={goHome}>
+      <TouchableOpacity style={styles.login} onPress={doSignIn}>
         <Text color={'#fff'} fontFamily={'SCDream7'}>
           Login
         </Text>

@@ -22,9 +22,12 @@ export default function TapComponent({ navigation, route }) {
   const goShow = () => {
     navigation.navigate('ShowPage');
   };
-  const goPetHospital = ()=> {
-    navigation.navigate('PetHospitalPage')
-  }
+  const goPetHospital = () => {
+    navigation.navigate('PetHospitalPage');
+  };
+  const goShoppingmall = () => {
+    navigation.navigate('ShoppingmallPage');
+  };
 
   return (
     <HStack
@@ -60,7 +63,15 @@ export default function TapComponent({ navigation, route }) {
       >
         동물병원
       </Text>
-      <Text fontFamily={'SCDream4'}>쇼핑몰</Text>
+      <Text
+        fontFamily={'SCDream4'}
+        mr={5}
+        color={route.name == 'ShoppingmallPage' ? '#EC4242' : null}
+        fontFamily={'SCDream4'}
+        onPress={goShoppingmall}
+      >
+        쇼핑몰
+      </Text>
     </HStack>
   );
 }

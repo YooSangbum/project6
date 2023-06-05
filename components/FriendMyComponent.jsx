@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 
 const Img = require('../assets/img/user3.jpg');
 
-export default function FriendComponent() {
+export default function FriendMyComponent() {
   return (
     <Flex
       mt={1}

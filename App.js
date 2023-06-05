@@ -21,14 +21,14 @@ export const theme = extendTheme({ config });
 
 import Loading from './pages/Loading';
 
-import Hospital from './data/AnimalhospiceData'
-import testData from './data/testData'
+import Hospital from './data/AnimalhospiceData.json';
+import testData from './data/testData';
 
 export default function App() {
   const [ready, setReady] = useState(false);
   const [hospital, setHospital] = useState([]);
   const [data, setData] = useState([]);
-  
+
   const loadFont = () => {
     setTimeout(async () => {
       await Font.loadAsync({
@@ -49,7 +49,7 @@ export default function App() {
 
   useEffect(() => {
     loadFont();
-    setHospital(Hospital)
+    setHospital(Hospital);
     setData(testData);
   }, []);
 

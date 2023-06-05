@@ -17,13 +17,16 @@ export default function PetHospitalPage({ route, navigation, hospital }) {
       >
         우리동네 <Text color={'#000'}>동물병원</Text>
       </Text>
-      {
-        hospital.map((hospital,i)=>{
-          return (
-            <HospitalComponent hospital={hospital} key={i} route={route}/>
-          )
-        })
-      }
+      {hospital.map((hospital, i) => {
+        return (
+          <HospitalComponent
+            hospital={hospital}
+            key={i}
+            route={route}
+            navigation={navigation}
+          />
+        );
+      })}
     </ScrollView>
   );
 }
