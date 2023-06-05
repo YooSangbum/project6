@@ -49,6 +49,7 @@ export default function SingUpInput({
           placeholderTextColor={'black'}
           fontFamily={'SCDream5'}
           onChangeText={(text) => {
+            text = text.trim();
             setFunc(text);
           }}
         />
@@ -79,6 +80,7 @@ export default function SingUpInput({
           placeholderTextColor={'black'}
           fontFamily={'SCDream5'}
           onChangeText={(text) => {
+            text = text.trim();
             setFuncE(text);
           }}
         />
@@ -109,6 +111,7 @@ export default function SingUpInput({
           fontWeight={700}
           secureTextEntry={typeP === 'password' ? true : false}
           onChangeText={(text) => {
+            text = text.trim();
             setFuncP(text);
           }}
         />
@@ -139,7 +142,11 @@ export default function SingUpInput({
           placeholderTextColor={'black'}
           fontWeight={700}
           secureTextEntry={typePC === 'passpasswordConfirmword' ? true : false}
-          onChangeText={(text) => setFuncPC(text)}
+          onChangeText={(text) => {
+            text = text.trim();
+            setFuncPC(text)
+          }
+          }
         />
         <Text w={'80%'} color={'yellow.500'}>
           {errorPC}

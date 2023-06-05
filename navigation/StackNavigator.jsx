@@ -26,8 +26,8 @@ const StackNavigator = ({ hospital, data }) => {
         headerShown: false,
       }}
     >
-      {/* <Stack.Screen name="TabNavigator" component={TabNavigator}  /> */}
       <Stack.Screen name="SignInPage" component={SignInPage} />
+      {/* <Stack.Screen name="TabNavigator" component={TabNavigator}  /> */}
       <Stack.Screen name="TabNavigator">
         {(props) => <TabNavigator {...props} hospital={hospital} data={data} />}
       </Stack.Screen>

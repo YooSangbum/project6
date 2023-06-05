@@ -1,11 +1,21 @@
 import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Text, View, FormControl, Flex } from 'native-base';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import SingUpInput from '../components/SingUpInput';
 import { TouchableOpacity } from 'react-native';
 
 import { AntDesign } from '@expo/vector-icons';
+
+//------- 회원인증을 통한 가입
+import { auth } from '../config/firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+//-------- firestore에 데이터 저장 
+import { db } from '../config/firebase';
+import { doc, setDoc } from "firebase/firestore"
+
 
 export default function SignUpPage({ navigation }) {
   const [nickName, setNickName] = useState('');
@@ -52,7 +62,36 @@ export default function SignUpPage({ navigation }) {
     } else {
       setPasswordConfirmError('');
     }
+    //회원가입 처리
+    createUserWithEmailAndPassword(auth, email, password, nickName)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log('가입성공', user.email);
+
+        //AsyncStorage에 사용자 정보 저장
+        AsyncStorage.setItem('session', email);
+
+        //------>> 사용자 정보 firestore에 저장 
+        const userRef = doc(db, 'users', user.uid);
+        setDoc(userRef, {
+          uid: user.uid, //Authentication - uid
+          email: user.email, //Authentication - email
+          nickName: nickName, // 가입 창에서 입력한 닉네임
+        })
+
+
+        //메인으로 이동 후 가입페이지로 뒤로가기 되지 않도록
+        navigation.push('TabNavigator');
+      })
+
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('가입실패', errorCode, errorMessage);
+      });
+
   };
+
 
   useEffect(() => {
     navigation.setOptions({
@@ -66,6 +105,7 @@ export default function SignUpPage({ navigation }) {
       headerBackImage: () => <AntDesign name="left" size={24} color="#000" />,
     });
   }, []);
+
   return (
     <View style={styles.container} pt={10}>
       <Text fontSize={40} fontFamily={'DancingScript-Bold'}>
