@@ -4,7 +4,7 @@
 
 > ### 미리보기
 >
-> <img src='https://github.com/YooSangbum/project6/blob/master/assets/readmeimg/wepet.jpg?raw=true' width="550px" alt='demo'> <br /> > <img src='https://github.com/YooSangbum/project6/blob/master/assets/readmeimg/wepet.gif?raw=true' width="185px" alt='demo' />
+> <img src='https://github.com/YooSangbum/project6/blob/master/assets/readmeimg/Layer%201.jpg?raw=true' width="550px" alt='demo'> <br /> > <img src='https://github.com/YooSangbum/project6/blob/master/assets/readmeimg/wepet.gif?raw=true' width="185px" alt='demo' />
 
 ---
 
