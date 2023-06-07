@@ -13,7 +13,7 @@ import { TouchableOpacity } from 'react-native';
 
 const cat = require('../assets/img/user3.jpg');
 
-export default function FeedMyComponent() {
+export default function FeedMyComponent({ fireData, nickName }) {
   return (
     <Box px={'16px'} mt={6} py={3}>
       <HStack alignItems={'center'}>
@@ -32,7 +32,7 @@ export default function FeedMyComponent() {
         </VStack>
         <VStack ml={4}>
           <Text fontFamily={'SUIT-Medium'} fontSize={18}>
-            유상범
+            {nickName}
           </Text>
           <Text fontFamily={'SUIT-Medium'} color="#B4B0B0" fontSize={12}>
             안녕하세요. 유상범입니다. 자기소개 합니다. FeedMy
@@ -41,13 +41,13 @@ export default function FeedMyComponent() {
       </HStack>
       <HStack justifyContent={'space-between'} pl={10} py={4}>
         <Text fontFamily={'SUIT-Medium'}>
-          게시글 <Text> 10</Text>
+          게시글 <Text> {fireData.length}</Text>
         </Text>
         <Text fontFamily={'SUIT-Medium'}>
-          팔로워 <Text> 2,222</Text>
+          팔로워 <Text> 0</Text>
         </Text>
         <Text fontFamily={'SUIT-Medium'}>
-          팔로잉 <Text> 444</Text>
+          팔로잉 <Text> 0</Text>
         </Text>
       </HStack>
     </Box>

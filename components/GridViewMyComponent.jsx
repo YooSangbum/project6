@@ -4,15 +4,13 @@ import { Dimensions } from 'react-native';
 
 const imgWidth = Dimensions.get('window').width / 3;
 
-export default function GridViewMyComponent({ data }) {
+export default function GridViewMyComponent({ fireData }) {
   return (
-    <Flex mt={1} flexDirection={'row'} flexWrap={'wrap'} borderColor={'red'}>
-      <Image
-        width={imgWidth}
-        height={imgWidth}
-        source={{ uri: data[0].image }}
-        alt="Img"
-      />
-    </Flex>
+    <Image
+      width={imgWidth}
+      height={imgWidth}
+      source={{ uri: fireData.image }}
+      alt="Img"
+    />
   );
 }

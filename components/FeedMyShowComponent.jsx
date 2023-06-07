@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, HStack } from 'native-base';
+import { Box, HStack, Flex } from 'native-base';
 
 import { TouchableOpacity, Dimensions } from 'react-native';
 
@@ -12,7 +12,7 @@ import HeartMyComponent from './HeartMyComponent';
 
 const imgWidth = Dimensions.get('window').width / 3;
 
-export default function FeedMyShowComponent({ data }) {
+export default function FeedMyShowComponent({ data, fireData }) {
   const [gridView, setgridView] = useState(true);
   const [friend, setfriend] = useState(false);
   const [heart, setheart] = useState(false);
@@ -88,8 +88,13 @@ export default function FeedMyShowComponent({ data }) {
           </TouchableOpacity>
         </HStack>
       </Box>
-
-      {gridView ? <GridViewMyComponent data={data} /> : null}
+      <Flex mt={1} flexDirection={'row'} flexWrap={'wrap'} borderColor={'red'}>
+        {fireData.map((fireData, i) => {
+          return gridView ? (
+            <GridViewMyComponent fireData={fireData} key={i} />
+          ) : null;
+        })}
+      </Flex>
       {friend ? <FriendMyComponent data={data} /> : null}
       {heart ? <HeartMyComponent data={data} /> : null}
     </>
