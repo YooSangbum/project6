@@ -63,3 +63,9 @@
 ### 바로가기
 
 > <a href="https://www.figma.com/file/hQTP1gxdyjmxxOB68ZnluE/WePet?type=design&node-id=0%3A1&t=8V76xumMs0bDobjA-1"> 피그마 바로가기 </a>
+
+---
+
+### 스타일가이드
+
+> <img src="https://github.com/YooSangbum/project6/blob/master/assets/readmeimg/styleguide.png?raw=true" width="550px" alt='demo'>
